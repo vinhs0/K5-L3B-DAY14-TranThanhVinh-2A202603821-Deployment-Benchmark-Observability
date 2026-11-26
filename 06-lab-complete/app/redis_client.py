@@ -13,8 +13,8 @@ from app.config import settings
 r = redis.from_url(
     settings.redis_url,
     decode_responses=True,
-    socket_connect_timeout=2,
-    socket_timeout=2,
+    socket_connect_timeout=1,   # /ready phải trả lời nhanh khi Redis chết
+    socket_timeout=1,
 )
 
 

@@ -10,6 +10,10 @@ services:
     environment:
       REDIS_URL: redis://redis:6379/0
       PORT: "8000"
+      # Lấy từ shell hoặc file .env (compose tự đọc .env để thay biến) — không ghi giá trị ở đây
+      AGENT_API_KEY: ${AGENT_API_KEY:-}
+      RATE_LIMIT_PER_MINUTE: ${RATE_LIMIT_PER_MINUTE:-10}
+      DAILY_BUDGET_USD: ${DAILY_BUDGET_USD:-1.0}
     depends_on:
       redis:
         condition: service_healthy
